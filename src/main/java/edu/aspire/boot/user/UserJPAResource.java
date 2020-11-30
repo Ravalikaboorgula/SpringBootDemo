@@ -24,8 +24,7 @@ public class UserJPAResource {
 
 	
 
-	@Autowired
-	private UserDaoService service;
+	
 	
 	@Autowired
 	private UserRepository userRepository;
