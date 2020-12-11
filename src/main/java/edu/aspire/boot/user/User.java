@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -32,12 +33,14 @@ public class User
 	@ApiModelProperty(notes="birthdate cannot be the in future ")
 	private Date Dob;
 	
-	
+	@OneToMany(mappedBy="user")
+	private List<Post> post;
 	//private List<BankAccounts> bankAccountsList;
 
 	public User() {
 
 	}
+
 
 	/*public User(int id, String name, Date Dob,List<BankAccounts> bankAccountsList) {
 		super();
@@ -75,6 +78,15 @@ public class User
 
 	public void setDob(Date dob) {
 		Dob = dob;
+	}
+	
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
 	}
 /*
 	public List<BankAccounts> getBankAccountsList() {
